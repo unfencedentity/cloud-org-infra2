@@ -1,0 +1,15 @@
+# Example values for cloud-org-infra2 Terraform stack
+# Copy this file to terraform.tfvars and adjust the values for your environment.
+
+subscription_id = "00000000-0000-0000-0000-000000000000"
+
+location    = "westeurope"
+environment = "dev"
+
+project_name = "cloud-org-infra2"
+
+default_tags = {
+  project     = "cloud-org-infra2"
+  owner       = "lucian"
+  environment = "dev"
+}
