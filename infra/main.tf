@@ -127,3 +127,17 @@ module "key_vault_core" {
 
   tags = local.common_tags
 }
+
+############################################################
+# Core Log Analytics Workspace
+############################################################
+
+module "log_analytics_core" {
+  source = "./modules/log_analytics"
+
+  name                = var.log_analytics_workspace_name
+  location            = module.rg_core.location
+  resource_group_name = module.rg_core.name
+
+  tags = local.common_tags
+}

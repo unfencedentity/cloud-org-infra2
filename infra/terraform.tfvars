@@ -18,3 +18,5 @@ storage_account_name       = "cloudorginfra2devsa"
 storage_account_enable_hns = true
 
 key_vault_name = "cloudorginfra2devkv"
+
+log_analytics_workspace_name = "cloud-org-infra2-dev-law"

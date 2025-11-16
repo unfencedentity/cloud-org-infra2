@@ -91,3 +91,12 @@ variable "key_vault_name" {
   description = "Globally unique name for the Azure Key Vault (letters and numbers only)."
   type        = string
 }
+
+############################################################
+# Log Analytics Workspace
+############################################################
+
+variable "log_analytics_workspace_name" {
+  description = "Name of the Log Analytics workspace."
+  type        = string
+}
