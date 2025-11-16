@@ -67,3 +67,18 @@ variable "subnets" {
     }
   }
 }
+
+############################################################
+# Storage account configuration
+############################################################
+
+variable "storage_account_name" {
+  description = "Globally unique name for the Storage Account."
+  type        = string
+}
+
+variable "storage_account_enable_hns" {
+  description = "Enable hierarchical namespace (ADLS Gen2)."
+  type        = bool
+  default     = true
+}

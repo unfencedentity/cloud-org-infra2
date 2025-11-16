@@ -98,3 +98,18 @@ module "nsg_private" {
 
   tags = local.common_tags
 }
+
+############################################################
+# Core Storage Account (ADLS Gen2-ready)
+############################################################
+
+module "storage_core" {
+  source = "./modules/storage_account"
+
+  name                = var.storage_account_name
+  location            = var.location
+  resource_group_name = module.rg_core.name
+  enable_hns          = var.storage_account_enable_hns
+
+  tags = local.common_tags
+}

@@ -13,3 +13,7 @@ default_tags = {
   owner       = "lucian"
   environment = "dev"
 }
+
+storage_account_name       = "cloudorginfra2devsa"
+storage_account_enable_hns = true
+
