@@ -100,3 +100,9 @@ variable "log_analytics_workspace_name" {
   description = "Name of the Log Analytics workspace."
   type        = string
 }
+
+variable "enable_storage_diagnostics" {
+  description = "Enable diagnostic settings for the storage account."
+  type        = bool
+  default     = true
+}

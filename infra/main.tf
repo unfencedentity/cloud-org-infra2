@@ -141,3 +141,27 @@ module "log_analytics_core" {
 
   tags = local.common_tags
 }
+
+############################################################
+# Diagnostic settings - Storage -> Log Analytics
+############################################################
+
+module "diagnostics_storage_core" {
+  source = "./modules/diagnostic_settings"
+
+  count = var.enable_storage_diagnostics ? 1 : 0
+
+  name                       = "${var.project_name}-${var.environment}-storage-core-diag"
+  target_resource_id         = module.storage_core.id
+  log_analytics_workspace_id = module.log_analytics_core.id
+
+  enabled_logs = [
+    "StorageRead",
+    "StorageWrite",
+    "StorageDelete"
+  ]
+
+  enabled_metrics = [
+    "Transaction"
+  ]
+}
