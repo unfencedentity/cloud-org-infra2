@@ -31,3 +31,20 @@ module "vnet_core" {
   tags          = local.common_tags
 }
 
+############################################################
+# Network Security Group for management subnet
+############################################################
+
+module "nsg_mgmt" {
+  source = "./modules/nsg"
+
+  name                = "${var.project_name}-${var.environment}-mgmt-nsg"
+  location            = var.location
+  resource_group_name = module.rg_core.resource_group_name
+
+  virtual_network_name = module.vnet_core.vnet_name
+  subnet_name          = "snet-mgmt"
+
+  tags = local.common_tags
+}
+
