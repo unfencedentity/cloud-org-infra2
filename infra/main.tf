@@ -48,3 +48,53 @@ module "nsg_mgmt" {
   tags = local.common_tags
 }
 
+############################################################
+# Network Security Group for workload subnet
+############################################################
+
+module "nsg_workload" {
+  source = "./modules/nsg"
+
+  name                = "${var.project_name}-${var.environment}-workload-nsg"
+  location            = var.location
+  resource_group_name = module.rg_core.resource_group_name
+
+  virtual_network_name = module.vnet_core.vnet_name
+  subnet_name          = "snet-workload"
+
+  tags = local.common_tags
+}
+
+############################################################
+# Network Security Group for data subnet
+############################################################
+
+module "nsg_data" {
+  source = "./modules/nsg"
+
+  name                = "${var.project_name}-${var.environment}-data-nsg"
+  location            = var.location
+  resource_group_name = module.rg_core.resource_group_name
+
+  virtual_network_name = module.vnet_core.vnet_name
+  subnet_name          = "snet-data"
+
+  tags = local.common_tags
+}
+
+############################################################
+# Network Security Group for private subnet
+############################################################
+
+module "nsg_private" {
+  source = "./modules/nsg"
+
+  name                = "${var.project_name}-${var.environment}-private-nsg"
+  location            = var.location
+  resource_group_name = module.rg_core.resource_group_name
+
+  virtual_network_name = module.vnet_core.vnet_name
+  subnet_name          = "snet-private"
+
+  tags = local.common_tags
+}
