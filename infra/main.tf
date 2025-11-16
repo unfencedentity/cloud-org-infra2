@@ -113,3 +113,17 @@ module "storage_core" {
 
   tags = local.common_tags
 }
+
+############################################################
+# Core Key Vault
+############################################################
+
+module "key_vault_core" {
+  source = "./modules/key_vault"
+
+  name                = var.key_vault_name
+  location            = module.rg_core.location
+  resource_group_name = module.rg_core.name
+
+  tags = local.common_tags
+}

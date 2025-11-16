@@ -17,3 +17,4 @@ default_tags = {
 storage_account_name       = "cloudorginfra2devsa"
 storage_account_enable_hns = true
 
+key_vault_name = "cloudorginfra2devkv"

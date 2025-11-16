@@ -82,3 +82,12 @@ variable "storage_account_enable_hns" {
   type        = bool
   default     = true
 }
+
+############################################################
+# Key Vault configuration
+############################################################
+
+variable "key_vault_name" {
+  description = "Globally unique name for the Azure Key Vault (letters and numbers only)."
+  type        = string
+}
