@@ -1,21 +1,16 @@
-###########################################################
-# Resource Group module
-###########################################################
-
 variable "name" {
-  description = "Name of the Resource Group"
   type        = string
+  description = "Name of the resource group."
 }
 
 variable "location" {
-  description = "Azure region"
   type        = string
+  description = "Azure region for the resource group."
 }
 
 variable "tags" {
-  description = "Tags applied to the RG"
   type        = map(string)
-  default     = {}
+  description = "Tags to apply to the resource group."
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -25,5 +20,6 @@ resource "azurerm_resource_group" "rg" {
 }
 
 output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
+  description = "The name of the created resource group."
+  value       = azurerm_resource_group.rg.name
 }

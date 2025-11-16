@@ -14,3 +14,20 @@ module "rg_core" {
   location = var.location
   tags     = local.common_tags
 }
+
+############################################################
+# Core virtual network
+############################################################
+
+module "vnet_core" {
+  source = "./modules/vnet"
+
+  name                = "${var.project_name}-${var.environment}-vnet"
+  location            = var.location
+  resource_group_name = module.rg_core.resource_group_name
+
+  address_space = var.vnet_address_space
+  subnets       = var.subnets
+  tags          = local.common_tags
+}
+

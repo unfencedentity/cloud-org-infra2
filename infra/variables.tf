@@ -35,3 +35,35 @@ variable "default_tags" {
     environment = "dev"
   }
 }
+
+############################################################
+# Networking configuration
+############################################################
+
+variable "vnet_address_space" {
+  description = "Address space for the core virtual network."
+  type        = list(string)
+  default     = ["10.10.0.0/16"]
+}
+
+variable "subnets" {
+  description = "Subnets to create inside the core virtual network."
+  type = map(object({
+    address_prefix = string
+  }))
+
+  default = {
+    mgmt = {
+      address_prefix = "10.10.1.0/24"
+    }
+    workload = {
+      address_prefix = "10.10.2.0/24"
+    }
+    data = {
+      address_prefix = "10.10.3.0/24"
+    }
+    private = {
+      address_prefix = "10.10.4.0/24"
+    }
+  }
+}
